@@ -23,14 +23,21 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
 
 exports.createUser = catchAsync(async (req, res, next) => {
   const {
-    name, email, password, confirmPassword, employeeId,
+    name, surname, email, password, confirmPassword, employeeId,
   } = req.body;
 
   if (!checkConfirmPassword(password, confirmPassword)) {
     throw new AppError('Passwords are not the same!', 400);
   }
 
-  validateRequiredFields(req.body, ['name', 'password', 'employeeId', 'email', 'confirmPassword']);
+  validateRequiredFields(req.body, [
+    'name',
+    'surname',
+    'password',
+    'employeeId',
+    'email',
+    'confirmPassword',
+  ]);
 
   const hashedPassword = await hashPassword(password);
 
@@ -38,6 +45,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
 
   const user = await usersCollection.insertOne({
     name,
+    surname,
     email,
     password: hashedPassword,
     employeeId: employeeObjectId,

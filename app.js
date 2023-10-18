@@ -1,9 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
 const userRouter = require('./routes/userRoutes');
+const employeeRouter = require('./routes/employeeRoutes');
 
 const app = express();
 
@@ -12,9 +14,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/v1/users', userRouter);
-// app.use('/api/v1/users', employeeRouter);  employees
+app.use('/api/v1/employees', employeeRouter);
 // app.use('/api/v1/users', vacationRouter);  vacations
 // app.use('/api/v1/users', worktimeRouter);  worktime
 

@@ -10,4 +10,4 @@ module.exports = (result, entityName, method, searchFilter) => {
   }
 };
 
-// probably needs to change for a 3 arguments function
+// change for a 3 arguments function
