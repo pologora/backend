@@ -8,11 +8,11 @@ process.on('uncaughtException', (err) => {
 });
 
 dotenv.config({ path: './config.env' });
-const { connectDB } = require('./config/db');
+// const { connectDB } = require('./config/db');
 
 const app = require('./app');
 
-connectDB();
+// connectDB();
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
