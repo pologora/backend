@@ -4,12 +4,12 @@
   "description": "",
   "main": "app.js",
   "engines": {
-    "node": ">=18.17.1"
+    "node": ">=14.17.1"
   },
   "scripts": {
-    "start": "node index.js",
-    "start:dev": "cross-env NODE_ENV=development nodemon index.js",
-    "start:prod": "cross-env NODE_ENV=production nodemon index.js",
+    "start": "node server.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon server.js",
+    "start:prod": "cross-env NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
     "test": "jest"
   },
