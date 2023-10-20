@@ -18,6 +18,11 @@ app.use(cors());
 
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/employees', employeeRouter);
+app.use('/', (req, res, next) => {
+  res.status(200).json({
+    status: 'success',
+  });
+});
 // app.use('/api/v1/users', vacationRouter);  vacations
 // app.use('/api/v1/users', worktimeRouter);  worktime
 
