@@ -1,6 +1,8 @@
 const { ObjectId } = require('mongodb');
 const { client } = require('../config/db');
 const catchAsync = require('../utils/catchAsync');
+const checkResult = require('../utils/checkResult');
+const validateRequiredFields = require('../utils/validateRequiredFields');
 
 const agenciesCollection = client.db('magazyn').collection('Agencies');
 
@@ -26,6 +28,8 @@ exports.createAgency = catchAsync(async (req, res, next) => {
     contactPerson,
   };
 
+  validateRequiredFields(req.body, ['name']);
+
   const user = await agenciesCollection.insertOne(userData);
 
   res.status(200).json({
@@ -39,6 +43,8 @@ exports.getAgencyById = catchAsync(async (req, res, next) => {
   const agencyObjectId = new ObjectId(id);
 
   const result = await agenciesCollection.findOne(agencyObjectId);
+
+  checkResult(result, 'Agency', 'get', 'ID');
 
   res.status(200).json({
     status: 'success',
