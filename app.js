@@ -25,6 +25,7 @@ app.use('/', (req, res, next) => {
     message: 'dupa',
   });
 });
+
 // app.use('/api/v1/users', vacationRouter);  vacations
 // app.use('/api/v1/users', worktimeRouter);  worktime
 
