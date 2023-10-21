@@ -20,3 +20,13 @@ exports.getEmployee = catchAsync(async (req, res, next) => {
     employee: result,
   });
 });
+
+exports.getAllEmployees = catchAsync(async (req, res, next) => {
+  const result = await employeeCollection.find().toArray();
+
+  res.status(200).json({
+    status: 'success',
+    length: result.length,
+    data: result,
+  });
+});
