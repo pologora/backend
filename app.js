@@ -6,6 +6,7 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const userRouter = require('./routes/userRoutes');
 const employeeRouter = require('./routes/employeeRoutes');
+const agencyRouter = require('./routes/agencyRoutes');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(cors());
 
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/employees', employeeRouter);
+app.use('/api/v1/agencies', agencyRouter);
 
 // app.use('/api/v1/users', vacationRouter);  vacations
 // app.use('/api/v1/users', worktimeRouter);  worktime
