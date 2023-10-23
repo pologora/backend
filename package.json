@@ -11,7 +11,8 @@
     "start:dev": "cross-env NODE_ENV=development nodemon server.js",
     "start:prod": "cross-env NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "npm rebuild bcrypt --build-from-source"
   },
   "author": "",
   "license": "ISC",
@@ -30,7 +31,6 @@
   },
   "dependencies": {
     "@types/jest": "^29.5.2",
-    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",

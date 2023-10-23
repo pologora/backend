@@ -4,7 +4,6 @@ const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
-const userRouter = require('./routes/userRoutes');
 const employeeRouter = require('./routes/employeeRoutes');
 const agencyRouter = require('./routes/agencyRoutes');
 
@@ -17,7 +16,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/v1/users', userRouter);
 app.use('/api/v1/employees', employeeRouter);
 app.use('/api/v1/agencies', agencyRouter);
 
