@@ -11,8 +11,7 @@
     "start:dev": "cross-env NODE_ENV=development nodemon server.js",
     "start:prod": "cross-env NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
-    "test": "jest",
-    "postinstall": "npm rebuild bcrypt --build-from-source"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
